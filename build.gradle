@@ -1,0 +1,24 @@
+apply plugin: 'war'
+
+group = 'de.codecamps'
+version = '0.9-SNAPSHOT'
+description = "JavaEE Test"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()        
+}
+
+dependencies {
+    providedCompile group: 'javax', name: 'javaee-api', version:'7.0'
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.18.0'
+// https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.jpa
+    compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: '2.6.4'
+    compile group: 'com.auth0', name: 'java-jwt', version: '3.2.0'
+}
+
+war {
+    archiveName 'cards.war'
+}
