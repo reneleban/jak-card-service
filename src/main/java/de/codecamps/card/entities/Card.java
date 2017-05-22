@@ -1,4 +1,4 @@
-package de.codecamps.card;
+package de.codecamps.card.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

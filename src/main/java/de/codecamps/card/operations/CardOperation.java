@@ -1,4 +1,6 @@
-package de.codecamps.card;
+package de.codecamps.card.operations;
+
+import de.codecamps.card.entities.Card;
 
 public class CardOperation {
 

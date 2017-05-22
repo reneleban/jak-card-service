@@ -1,4 +1,6 @@
-package de.codecamps.card;
+package de.codecamps.card.persistence;
+
+import de.codecamps.card.entities.Card;
 
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
