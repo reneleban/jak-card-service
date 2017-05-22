@@ -1,5 +1,6 @@
 package de.codecamps.card;
 
+
 import de.codecamps.card.entities.Card;
 import de.codecamps.card.operations.CardOperation;
 import de.codecamps.card.persistence.Cards;

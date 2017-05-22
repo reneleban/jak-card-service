@@ -3,11 +3,6 @@ package de.codecamps.card.operations;
 import de.codecamps.card.entities.Card;
 
 public class CardOperation {
-
-    public String getCard(long id) {
-        return null;
-    }
-
     public Card createCard(String listId, String name, String description) {
         Card card = new Card();
         card.setListId(listId);

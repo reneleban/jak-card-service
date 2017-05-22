@@ -15,6 +15,10 @@ public class Cards {
     @PersistenceContext(unitName = "card-unit", type = PersistenceContextType.EXTENDED)
     private EntityManager entityManager;
 
+    public Card getCard(long id){
+        return entityManager.find(Card.class, id);
+    }
+
     public void addCard(Card card) {
         entityManager.persist(card);
     }
