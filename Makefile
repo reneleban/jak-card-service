@@ -3,13 +3,18 @@ build:
 
 clean:
 	rm -rf build;
-	sudo docker stop cards;
-	sudo docker rm cards;
-	sudo docker rmi codecamps/jak-cards;
+	docker stop cards;
+	docker rm cards;
+	docker rmi codecamps/jak-cards;
+
+volume:
+	docker volume create jak-card-volume;
 
 install:
-	sudo docker build -t codecamps/jak-cards .;
+	docker build -t codecamps/jak-cards .;
 
 run:
-	sudo docker run -d -p 8282:8080 -p 8000:8000 --name cards codecamps/jak-cards:latest;
+	docker run -d -v jak-card-volume:/sqlite-db -p 8282:8080 -p 8000:8000 --name cards codecamps/jak-cards:latest;
+
+all: build install run
 
