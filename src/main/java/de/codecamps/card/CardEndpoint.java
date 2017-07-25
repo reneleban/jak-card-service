@@ -11,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
+import java.util.List;
 
 @Stateless
 @Produces({MediaType.APPLICATION_JSON})
@@ -25,9 +26,8 @@ public class CardEndpoint {
     Cards cards;
 
     @POST
-    @Path("/{token}/{list_id}")
+    @Path("/{list_id}")
     public Card addCard(
-            @PathParam("token") String token,
             @PathParam("list_id") String listId,
             @FormParam("name") String name,
             @FormParam("description") String description,
@@ -35,5 +35,14 @@ public class CardEndpoint {
         Card card = cardOperation.createCard(listId, name, description);
         cards.addCard(card);
         return card;
+    }
+
+    @GET
+    @Path("/{list_id}")
+    public List<Card> getCards(
+        @PathParam("list_id") String listId,
+        @Context SecurityContext securityContext
+    ){
+        return cards.getCards(listId);
     }
 }

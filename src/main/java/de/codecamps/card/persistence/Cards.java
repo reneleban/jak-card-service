@@ -28,8 +28,9 @@ public class Cards {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Card> getCards() {
-        Query query = entityManager.createQuery("SELECT c from Card as c");
+    public List<Card> getCards(final String listId) {
+        Query query = entityManager.createQuery("SELECT c from Card as c where c.listId=:listId order by c.name");
+        query.setParameter("listId", listId);
         return query.getResultList();
     }
 }
